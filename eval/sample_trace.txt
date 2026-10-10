@@ -1,0 +1,39 @@
+CLAIM: I drove 250 miles in my personal car for a client visit. What do I get back?
+
+[
+ {
+  "step": 1,
+  "type": "tool_call",
+  "why": "",
+  "tool": "search_policy",
+  "input": {
+   "query": "mileage"
+  }
+ },
+ {
+  "step": 1,
+  "type": "tool_result",
+  "tool": "search_policy",
+  "output": "[Mileage] Use of a personal car for business is reimbursed at $0.67 per mile."
+ },
+ {
+  "step": 2,
+  "type": "tool_call",
+  "why": "",
+  "tool": "calculate",
+  "input": {
+   "expression": "250 * 0.67"
+  }
+ },
+ {
+  "step": 2,
+  "type": "tool_result",
+  "tool": "calculate",
+  "output": "167.5"
+ }
+]
+
+ANSWER:
+Decision: Approved  
+Reimbursable: $167.50  
+Reason: Mileage is reimbursed at $0.67 per mile; 250 miles × $0.67 = $167.50.

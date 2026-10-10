@@ -1,0 +1,11 @@
+[
+  {"id":"meals","title":"Meals","text":"Meals are reimbursable up to $60 per day for domestic travel and $90 per day for international travel. Alcohol is never reimbursable."},
+  {"id":"lodging","title":"Lodging","text":"Hotel lodging is reimbursable up to $180 per night domestic and $250 per night international."},
+  {"id":"mileage","title":"Mileage","text":"Use of a personal car for business is reimbursed at $0.67 per mile."},
+  {"id":"airfare","title":"Airfare","text":"Economy class only. Business class is allowed for flights longer than 6 hours, and only with manager approval."},
+  {"id":"alcohol","title":"Alcohol","text":"Alcohol is not reimbursable under any circumstances, including client dinners."},
+  {"id":"receipts","title":"Receipts","text":"A receipt is required for any single expense over $25. Expenses of $25 or less do not need a receipt."},
+  {"id":"ground","title":"Taxi and rideshare","text":"Taxi and rideshare are reimbursable up to $50 per trip."},
+  {"id":"deadline","title":"Submission deadline","text":"Expense claims must be submitted within 30 days of the expense date. Late claims are not eligible."},
+  {"id":"internet","title":"Home internet","text":"Home internet for remote work is reimbursable up to $50 per month."}
+]

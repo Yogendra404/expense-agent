@@ -1,0 +1,14 @@
+[
+ {"id":1,"input":"4 nights at a domestic hotel, $210 per night. How much is reimbursable?","expected_all":["720"],"expected_tools":["search_policy","calculate"]},
+ {"id":2,"input":"I drove 250 miles in my personal car for a client visit. What do I get back?","expected_all":["167.5"],"expected_tools":["search_policy","calculate"]},
+ {"id":3,"input":"3 days of international travel, I spent $300 total on meals. Reimbursable amount?","expected_all":["270"],"expected_tools":["search_policy","calculate"]},
+ {"id":4,"input":"3 nights at an international hotel, EUR 200 per night. Reimbursable total in USD?","expected_all":["648"],"expected_tools":["search_policy","convert_currency","calculate"]},
+ {"id":5,"input":"A taxi ride in Mumbai cost INR 5000. How much is reimbursable in USD?","expected_all":["50"],"expected_tools":["search_policy","convert_currency"]},
+ {"id":6,"input":"I bought a $45 bottle of wine at a client dinner. Can I claim it?","expected_any":["not reimbursable","rejected","$0","0"],"expected_tools":["search_policy"]},
+ {"id":7,"input":"I want to submit an expense from 45 days ago. Is it eligible?","expected_all":["30 days"],"expected_tools":["search_policy"]},
+ {"id":8,"input":"Can I fly business class on an 8 hour flight?","expected_all":["manager approval"],"expected_tools":["search_policy"]},
+ {"id":9,"input":"Do I need a receipt for a $20 expense?","expected_any":["not required","no receipt","do not need","does not need","don't need"],"expected_tools":["search_policy"]},
+ {"id":10,"input":"My home internet bill was GBP 60 this month. How much is reimbursable in USD?","expected_all":["50"],"expected_tools":["search_policy","convert_currency"]},
+ {"id":11,"input":"One day of international meals cost me JPY 15000. Reimbursable in USD?","expected_all":["90"],"expected_tools":["search_policy","convert_currency"]},
+ {"id":12,"input":"What is the company policy on stock option reimbursements?","expected_any":["could not find","couldn't find","no matching","not covered","no policy","finance"],"expected_tools":["search_policy"]}
+]

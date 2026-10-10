@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "input": "4 nights at a domestic hotel, $210 per night. How much is reimbursable?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "calculate"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $720  \nReason: Lodging domestic is capped at $180 per night; 4 nights at $210 exceeds the limit, so reimbursement is $180\u202f\u00d7\u202f4\u202f=\u202f$720."
+  },
+  {
+    "id": 2,
+    "input": "I drove 250 miles in my personal car for a client visit. What do I get back?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "calculate"
+    ],
+    "answer": "Decision: Approved  \nReimbursable: $167.5  \nReason: Policy reimburses personal car mileage at $0.67 per mile; 250 miles \u00d7 $0.67 = $167.5."
+  },
+  {
+    "id": 3,
+    "input": "3 days of international travel, I spent $300 total on meals. Reimbursable amount?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "calculate"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $270  \nReason: International meals are capped at $90 per day; 3 days \u00d7 $90 = $270, which is less than the claimed $300."
+  },
+  {
+    "id": 4,
+    "input": "3 nights at an international hotel, EUR 200 per night. Reimbursable total in USD?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "convert_currency",
+      "calculate"
+    ],
+    "answer": "Decision: Approved  \nReimbursable: $648  \nReason: International lodging is capped at $250 per night; the converted amount of $216 per night is below the limit, so the full claim is reimbursable."
+  },
+  {
+    "id": 5,
+    "input": "A taxi ride in Mumbai cost INR 5000. How much is reimbursable in USD?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "convert_currency",
+      "calculate"
+    ],
+    "answer": "Decision: Partially approved\nReimbursable: $50\nReason: Taxi rides are capped at $50 per trip; the claim converts to $60, so only $50 is reimbursable."
+  },
+  {
+    "id": 6,
+    "input": "I bought a $45 bottle of wine at a client dinner. Can I claim it?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Decision: Rejected\nReimbursable: $0\nReason: Alcohol is not reimbursable under any circumstances, including client dinners."
+  },
+  {
+    "id": 7,
+    "input": "I want to submit an expense from 45 days ago. Is it eligible?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Decision: Rejected\nReimbursable: $0\nReason: Expense claims must be submitted within 30 days of the expense date; a claim from 45 days ago exceeds this deadline."
+  },
+  {
+    "id": 8,
+    "input": "Can I fly business class on an 8 hour flight?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Yes. Business class is permitted on flights longer than\u202f6\u202fhours, such as an 8\u2011hour flight, but you must obtain manager approval before booking."
+  },
+  {
+    "id": 9,
+    "input": "Do I need a receipt for a $20 expense?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "No. A receipt is only required for single expenses **over $25**; a $20 expense does not need one."
+  },
+  {
+    "id": 10,
+    "input": "My home internet bill was GBP 60 this month. How much is reimbursable in USD?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "convert_currency",
+      "calculate"
+    ],
+    "answer": "Decision: Approved  \nReimbursable: $50  \nReason: Policy caps home internet reimbursement at $50 per month; the claimed amount exceeds this limit, so the maximum allowable reimbursement is $50."
+  },
+  {
+    "id": 11,
+    "input": "One day of international meals cost me JPY 15000. Reimbursable in USD?",
+    "passed": false,
+    "problems": [
+      "exception: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a6p11fex1t1njzxdwjm6a0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199510, Requested 849. Please try again in 2m35.088s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    ],
+    "tools_used": [],
+    "answer": ""
+  },
+  {
+    "id": 12,
+    "input": "What is the company policy on stock option reimbursements?",
+    "passed": false,
+    "problems": [
+      "exception: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a6p11fex1t1njzxdwjm6a0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199509, Requested 726. Please try again in 1m41.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    ],
+    "tools_used": [],
+    "answer": ""
+  }
+]

@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "input": "4 nights at a domestic hotel, $210 per night. How much is reimbursable?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "calculate"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $720  \nReason: Lodging is capped at $180 per night domestic; claimed $210 per night exceeds the limit."
+  },
+  {
+    "id": 2,
+    "input": "I drove 250 miles in my personal car for a client visit. What do I get back?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "calculate"
+    ],
+    "answer": "Decision: Approved  \nReimbursable: $167.50  \nReason: Mileage reimbursement is $0.67 per mile; 250 miles \u00d7 $0.67 = $167.50."
+  },
+  {
+    "id": 3,
+    "input": "3 days of international travel, I spent $300 total on meals. Reimbursable amount?",
+    "passed": false,
+    "problems": [
+      "tool not used: calculate"
+    ],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $270  \nReason: Meals for international travel are capped at $90 per day; claimed $300 exceeds the $270 limit."
+  },
+  {
+    "id": 4,
+    "input": "3 nights at an international hotel, EUR 200 per night. Reimbursable total in USD?",
+    "passed": false,
+    "problems": [
+      "tool not used: calculate"
+    ],
+    "tools_used": [
+      "search_policy",
+      "convert_currency"
+    ],
+    "answer": "Decision: Approved  \nReimbursable: $648  \nReason: International hotel lodging is capped at $250 per night; the claimed $200/night (converted to $216/night) is within the limit, so the full $648 is reimbursable."
+  },
+  {
+    "id": 5,
+    "input": "A taxi ride in Mumbai cost INR 5000. How much is reimbursable in USD?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "convert_currency",
+      "calculate",
+      "calculate"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $50  \nReason: Taxi rides are reimbursable up to $50 per trip; the claimed amount of $60 exceeds the policy limit."
+  },
+  {
+    "id": 6,
+    "input": "I bought a $45 bottle of wine at a client dinner. Can I claim it?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Decision: Rejected  \nReimbursable: $0  \nReason: Alcohol is never reimbursable under any circumstances, including client dinners."
+  },
+  {
+    "id": 7,
+    "input": "I want to submit an expense from 45 days ago. Is it eligible?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Decision: Rejected  \nReimbursable: $0  \nReason: Expense claims must be submitted within 30 days of the expense date; a claim from 45 days ago exceeds the deadline."
+  },
+  {
+    "id": 8,
+    "input": "Can I fly business class on an 8 hour flight?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "Decision: Cannot determine  \nReimbursable: $0  \nReason: The policy allows business class for flights longer than 6 hours only with manager approval."
+  },
+  {
+    "id": 9,
+    "input": "Do I need a receipt for a $20 expense?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "No, a receipt is not required for a $20 expense. The policy states that receipts are only required for single expenses over $25."
+  },
+  {
+    "id": 10,
+    "input": "My home internet bill was GBP 60 this month. How much is reimbursable in USD?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy",
+      "convert_currency"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $50  \nReason: Home internet is reimbursable up to $50 per month; the claimed $76.20 exceeds the limit."
+  },
+  {
+    "id": 11,
+    "input": "One day of international meals cost me JPY 15000. Reimbursable in USD?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "convert_currency",
+      "search_policy",
+      "calculate"
+    ],
+    "answer": "Decision: Partially approved  \nReimbursable: $90  \nReason: Meals are capped at $90 per day for international travel; the claimed $100.5 exceeds that limit."
+  },
+  {
+    "id": 12,
+    "input": "What is the company policy on stock option reimbursements?",
+    "passed": true,
+    "problems": [],
+    "tools_used": [
+      "search_policy"
+    ],
+    "answer": "**Decision:** Cannot determine  \n**Reimbursable:** $0  \n**Reason:** No matching policy was found for \u201cstock option reimbursements.\u201d Please contact Finance for clarification."
+  }
+]
