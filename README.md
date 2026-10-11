@@ -16,15 +16,15 @@ Example flow: "3 nights in an international hotel at EUR 200/night"
 
 ## Customisation (AI-6): specialised persona + prompt strategy
 `expense_agent/prompts.py` defines an "ExpenseBot auditor" persona, a 7-step mandatory
-strategy (always retrieve policy, always use the calculator, never invent rules),
-a fixed output format and a worked few-shot example. `agent.py` also retries up to
-2 times when the model returns an empty final answer.
+strategy (always retrieve policy, always use the calculator, never invent rules), a
+fixed output format and a worked few-shot example. `agent.py` also retries up to 2
+times when the model returns an empty final answer.
 
 ## Tracing
 Every run records, for each step: which tool was called, with what input, what came
 back, and the model's stated reason when it gives one. It is printed to the console
 and appended to `logs/trace.jsonl` (`logs/eval_trace.jsonl` during evaluation).
-A sample is in `eval/sample_trace.txt`.
+A sample trace is in [`eval/sample_trace.txt`](eval/sample_trace.txt).
 
 ## Evaluation (AI-7)
 `eval/cases.json` holds 12 cases: caps at limits (lodging, meals, taxi, internet),
@@ -43,29 +43,29 @@ tools were actually called.
 | 2 | gpt-oss-120b | + synonyms, plural handling | 11/12 (92%) |
 | 3 | gpt-oss-120b | + ignore generic words, top-3 results | 11/12 (92%) |
 | 4 | gpt-oss-20b | + empty-answer retry, smaller model | 10/12 (83%) |
-| 5 | gpt-oss-120b | final agent | cases 1-10: 10/10 passed; cases 11-12 pending (see below) |
+| 5 | gpt-oss-120b | final agent | cases 1-10: 10/10 passed; cases 11-12 pending (see note) |
 
-Models run on Groq's free tier at temperature 0. Run 5 was interrupted by Groq's daily
-token limit after case 10. Those API errors are not agent failures and are not counted.
-Cases 11-12 are re-run with `--resume` using identical code, prompts and model.
+Models were run on Groq's free tier at temperature 0. Run 5 was interrupted by Groq's
+daily token limit after case 10. Those API errors are not agent failures and are not
+counted. Cases 11-12 are re-run with `--resume`, using identical code, prompts and model.
 
 ### Failure patterns observed
 - **Retrieval bug (case 5):** generic words like "domestic" tied with the real topic
   word, and a top-2 cutoff dropped the Taxi policy. Fixed by ignoring generic words
-  and returning the top 3.
+  and returning the top 3 results.
 - **Empty final answer (case 2):** the model sometimes returned a blank message after
   the policy lookup. Mitigated with a retry that nudges it to continue.
 - **Tool skipping (cases 3 and 4, gpt-oss-20b):** correct totals ($270, $648) without
   calling `calculate`. The answers were right but the process was not, so the eval
   counts them as failures.
-- Results vary between runs even at temperature 0.
+- Results vary between runs even at temperature 0, so pass rates are approximate.
 
 ## Setup
     python -m venv .venv
     .venv\Scripts\activate          # Mac/Linux: source .venv/bin/activate
     pip install -r requirements.txt
     copy .env.example .env          # Mac/Linux: cp .env.example .env
-    # edit .env and add your GROQ_API_KEY (or set PROVIDER=anthropic and ANTHROPIC_API_KEY)
+    # edit .env: add GROQ_API_KEY (or set PROVIDER=anthropic and ANTHROPIC_API_KEY)
     python tests_offline.py         # tool sanity test, no API key needed
     python main.py "I drove 250 miles for work. What can I claim?"
     python eval/evaluate.py

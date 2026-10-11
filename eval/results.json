@@ -107,5 +107,27 @@
       "calculate"
     ],
     "answer": "Decision: Approved  \nReimbursable: $50  \nReason: Policy caps home internet reimbursement at $50 per month; the claimed amount exceeds this limit, so the maximum allowable reimbursement is $50."
+  },
+  {
+    "id": 11,
+    "input": "One day of international meals cost me JPY 15000. Reimbursable in USD?",
+    "passed": false,
+    "problems": [
+      "exception: Error code: 401 - {'error': {'message': 'Invalid API Key', 'type': 'invalid_request_error', 'code': 'invalid_api_key'}}"
+    ],
+    "tools_used": [],
+    "answer": "",
+    "model": "openai/gpt-oss-120b"
+  },
+  {
+    "id": 12,
+    "input": "What is the company policy on stock option reimbursements?",
+    "passed": false,
+    "problems": [
+      "exception: Error code: 401 - {'error': {'message': 'Invalid API Key', 'type': 'invalid_request_error', 'code': 'invalid_api_key'}}"
+    ],
+    "tools_used": [],
+    "answer": "",
+    "model": "openai/gpt-oss-120b"
   }
 ]
